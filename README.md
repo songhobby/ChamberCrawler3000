@@ -2,3 +2,54 @@
 #cs246 final project
 #Nov 26 2016
 A simplified rogue-like video game, player need to reach 5th floor to win the game. The more enemies player slained, the much gold player gains, the higher the score is. (You need ncurse libary to run the game).
+
+FINAL CC3K
+Eason
+Daniel
+Aaron 
+
+In our CC3K project, we managed to complete WASD control, Enemy chasing, Add some more characters and enemies, add colorful display, alternating day and night every 20 moves, and Random Floor Generation.
+
+When you launch the program, you should see:
+
+	choose n/d to use normal/dlc
+
+When you see this message, just simply press n/d and ENTER to select different versions.
+
+if you select normal version, there is no dlc under this condition.
+if you select dlc version, you should be able to see our awesome features.
+	under this condition, all the dlcs should be turned on. (You have choice to select random floor or not)
+
+Now, you should see:
+
+	Want crazy random floor? [y/n]
+
+This is simply asking if you to turn on the random floor feature or not.
+press y for yes, n for no.
+
+After you make the selection, you should see the welcome window, and a message to asking about character selection.
+
+ Choose your player: s(Shade), d(Drow), v(Vampire),  g(Goblin), t(Troll) , n(Nightelf)
+
+Press corresponding char to select the character you want. 
+You may have noticed that we add Nightelf as a new character. 
+Actually, we have two more characters for player which are named after two of our awesome developer Lol
+They are hidden character in this game, but if your insist to try it out, you can press 'a' or 'e' to try it. 
+Aaron(a) has the most powerful ability as to destroy and built the wall or passage!!!
+We aimed at making this character to be the most creative PC in this game.
+
+Eason(e) has the ability to go through the wall and whitespace. however, we have not implemented the case when Eason goes outside of the floor. 
+
+Nightelf(n) has the ability to gain health when night comes.
+
+To be fair, we also implement three other new enemies, Worgen(R), Bloodelf(B), Forsaken(F) with different abilities. (Some abilities are related to day and night)
+
+REMARK:
+
+For WASD control, even thought we can set shortcuts to enable the player move towards more direction, we believe wasd is enough for us.
+
+	Press 'wasdWASD' to move towardes corresponding direction, 
+	Press 'jJ' plus  'wasdWASD' to attack,
+	Press 'kK' plus 'wasdWASD' to use potion.
+
+Also, there is tiny possibility for the random generation fail causing segmentation fault(because of the size of the chamber may be too small, which is easy to handle)
