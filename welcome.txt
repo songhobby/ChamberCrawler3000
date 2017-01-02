@@ -1,0 +1,25 @@
+|-----------------------------------------------------------------------------|
+|                                                                             |
+|                                                                             |
+|            ||||||         ||||||      |||||||         ||      |||           |
+|          |||            |||                  ||       ||    |||             |
+|        |||            |||                    ||       ||  |||               |
+|        |||            |||              ||||||||       ||||                  |
+|        |||            |||                    ||       ||  |||               |
+|          |||            |||                  ||       ||    |||             |
+|            ||||||         ||||||      |||||||         ||      |||           |
+|                                                                             |
+|                      Press "c" to play using command                        |
+|                        Press "e" to play using wasd                         |
+|                                                                             |
+|       s: Shade   (High Score)                                               |
+|       d: Drow    (Hight HP)                                                 |
+|       g: Goblin  (steal money after smashing)                               |
+|       v: Vampire (no max HP, steal HP)                                      |
+|       t: Troll   (steal HP)                                                 |
+|       ?: ???                                                                |
+|       ?: ???                                                                |
+|                                                                             |
+|   WIN THE GAME TO UNLOCK NEW CHARACTER               Aaron Daniel Eason     |
+|                                                          CS246 Nov 2016     |
+|-----------------------------------------------------------------------------|
