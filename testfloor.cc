@@ -249,6 +249,9 @@ void T_Floor::init(string file){
 		try{
 		   isSuccess = 
 				thePlayer->visit(*board[target_r][target_c], type); //catch throw
+		   if (thePlayer->getInfo().hp <= 0 && type == PICKUP){
+			   throw 'd';
+		   }
 		}
 		catch (VisitExcept& exc) {
 			//cout << "here!!!!!" << endl;

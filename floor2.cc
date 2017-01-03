@@ -495,6 +495,9 @@ void D_Floor::setPlayer(){ // generate player.
 				// reduce the gabage
 			} else if (exc.state == "pickup_potion"){
 					board[target_r][target_c] = make_shared<Tile>(target_c,target_r);
+					if (thePlayer->getInfo().hp <= 0){
+						throw 'd';
+					}
 					//aaron have to return visitExcept with "string"
 					//throw;		
 			//	theDisplay.w->notify(*board[target_r][target_c]);
@@ -612,9 +615,14 @@ void D_Floor::setPlayer(){ // generate player.
 				int c = theEnemy[i]->getPos().posx;
 				if (abs(player_r - r) <= 1 && abs(player_c - c) <= 1){
 					playeraround = true;
+					int attack = getRandom(0,1);
 					try	{
 					//cout << "player is attacked" << endl;
+						if (attack == 1){
 							theEnemy[i]->visit(*thePlayer, ATTACK);
+						} else {
+							thePlayer->getPlayerInfo().action += "Enemy missed";
+						}
 					}
 					catch(VisitExcept & exc){
 						if (exc.state == "deadplayer"){

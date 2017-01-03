@@ -459,6 +459,9 @@ void N_Floor::setPlayer(){ // generate player.
 		try{
 		   isSuccess = 
 				thePlayer->visit(*board[target_r][target_c], type); //catch throw
+		   if (thePlayer->getInfo().hp <= 0 && type == PICKUP){
+			   throw 'd';
+		   }
 		}
 		catch (VisitExcept& exc) {
 			//cout << "here!!!!!" << endl;
@@ -469,6 +472,9 @@ void N_Floor::setPlayer(){ // generate player.
 				// reduce the gabage
 			} else if (exc.state == "pickup_potion"){
 					board[target_r][target_c] = make_shared<Tile>(target_c,target_r);
+					if (thePlayer->getInfo().hp <= 0){
+						throw 'd';
+					}
 					//aaron have to return visitExcept with "string"
 					//throw;		
 			//	theDisplay.w->notify(*board[target_r][target_c]);
@@ -573,9 +579,14 @@ void N_Floor::setPlayer(){ // generate player.
 				int c = theEnemy[i]->getPos().posx;
 				if (abs(player_r - r) <= 1 && abs(player_c - c) <= 1){
 					playeraround = true;
+					int attack = getRandom(0,1);
 					try	{
 					//cout << "player is attacked" << endl;
+						if (attack == 1){
 							theEnemy[i]->visit(*thePlayer, ATTACK);
+						} else {
+							thePlayer->getPlayerInfo().action += "Enemy missed";
+						}
 					}
 					catch(VisitExcept & exc){
 						if (exc.state == "deadplayer"){
@@ -644,15 +655,6 @@ bool N_Floor::enemyMove(int n, vector<bool>& possibility) {
 		target_c = c-1;
 		possibility[i] = true;
 	}
-	//can move to that position for some reason).
-//	if (i != 0) {
-    //board[r][c] = theEnemy[n]->getPos().last;
-    //theEnemy[n]->getPos().last == board[target_r][target_c];
-    //board[target_r][target_c] = theEnemy[n];
-//	} else {
-//		return true;
-//	}
-	//this part is to make sure all 8 positions have been checked.
     if (theEnemy[n]->visit(*board[target_r][target_c], MOVE)){
 		swap(theEnemy[n]->getPos().posx, board[target_r][target_c]->getPos().posx);
 		swap(theEnemy[n]->getPos().posy, board[target_r][target_c]->getPos().posy);
